@@ -1,0 +1,20 @@
+Query 1: 
+select Pname,P_btype,P_contact_number,patient.h_id,hcity,hname from patient
+     left outer join hospital
+     on
+     patient.h_id=hospital.h_id
+     where patient.p_btype='B+' and hospital.hname='Berger and Sons';
+Query 2:
+ select D_id,Dname,D_contact_number,D_btype,P_btype from blood_donor
+     natural join patient
+    where patient.pname='Sarah Nicholson' and (patient.p_btype=Blood_Donor.D_btype or Blood_Donor.D_btype='O-');
+Query 3:
+select hname,Bname,Bcity,B_contact_number,B_branch,P_id from bloodbank natural join patient natural join hospital
+    where hospital.hname='Holloway PLC' and hcity=Bcity;
+Query 4:
+ select *from patient natural join
+ hospital where hcity='Buchanan' and patient.p_btype='AB-';
+Query 5:
+select *from Blood_Donor
+Natural join patient 
+where patient.p_btype='AB-' and (Blood_Donor.d_btype='AB-' or Blood_donor.d_btype='A-' or Blood_donor.d_btype='B-' or Blood_donor.d_btype='O-'); 
